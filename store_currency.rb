@@ -4,8 +4,8 @@ attr_reader :amount
 attr_reader :code
 
   def initialize(amount, code)
-    @amount = amount.to_i
-    @code   = code.to_s
+    @amount = amount
+    @code   = code
   end
 
   def + (other_money)
@@ -21,20 +21,6 @@ attr_reader :code
     return other_money.amount
   end
 
-  # #   other_money.amount += @amount
-  #   return result
-  # end
-  #
-  #
-  # def -(other_money)
-  #   other_money.amount -= @amount
-  #   return result
-  # end
-
-  #def *(amount)
-  #  result.value
-  #end
-
   def ==(other_money)
     other_money.amount == @amount && other_money.code == @code
   end
@@ -43,15 +29,30 @@ end
 
 dollar       =  Currency.new(100.00, "USD")
 joshmoney    =  Currency.new(100.00, "USD")
+damemoney    =  Currency.new(100.00, "DMZ")
+anthonymoney =  Currency.new(1000, "USD")
+
+5.times do
+  puts "Should be false"
+  puts joshmoney == damemoney
+  puts "Should be true"
+  puts joshmoney != damemoney
+end
+
 
 5.times do
   puts "Equals"
-  puts joshmoney == dollar
+  puts joshmoney.amount == dollar.amount
 end
 
 5.times do
   puts "Addition"
   puts joshmoney.amount + dollar.amount
+end
+
+5.times do
+  puts "Multiply"
+  puts joshmoney.amount * dollar.amount
 end
 
 puts dollar.amount
