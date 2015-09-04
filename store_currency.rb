@@ -32,39 +32,58 @@ joshmoney    =  Currency.new(100.00, "USD")
 damemoney    =  Currency.new(100.00, "DMZ")
 anthonymoney =  Currency.new(1000, "USD")
 
-2.times do
-  puts "gimme dollrz: "
-  input = gets.chomp
-  no_digits = input.gsub(/[^\D]/, "")
+def isolate_symbols
+  puts "Number please: "
+  x = gets.chomp
+  no_digits = x.gsub(/[^\D]/, "")
   no_digits_no_punctuation = no_digits.delete ",."
   puts no_digits_no_punctuation
 end
 
+isolate_symbols
+
+
+#
+# 2.times do
+#   puts "gimme dollrz: "
+#   input = gets.chomp
+#   no_digits = input.gsub(/[^\D]/, "")
+#   no_digits_no_punctuation = no_digits.delete ",."
+#   puts no_digits_no_punctuation
+# end
+
 #Sanity checks
-3.times do
-  puts "Should be false"
-  puts joshmoney == damemoney
-  puts "Should be true"
-  puts joshmoney != damemoney
-end
+# 3.times do
+#   puts "Should be false"
+#   puts joshmoney == damemoney
+#   puts "Should be true"
+#   puts joshmoney != damemoney
+# end
+#
+# 3.times do
+#   puts "Equals"
+#   puts joshmoney.amount == dollar.amount
+# end
+#
+# 3.times do
+#   puts "Addition"
+#   puts joshmoney.amount + dollar.amount
+# end
+#
+# 3.times do
+#   puts "Subtraction"
+#   puts joshmoney.amount - dollar.amount
+# end
+#
+# 3.times do
+#   puts "Multiply"
+#   puts joshmoney.amount * dollar.amount
+# end
+#
+# puts dollar.amount
+# puts dollar.code
+# 3.times do
+#   puts "I have #{joshmoney.amount} JoshMoneys!"
+# end
 
-3.times do
-  puts "Equals"
-  puts joshmoney.amount == dollar.amount
-end
-
-3.times do
-  puts "Addition"
-  puts joshmoney.amount + dollar.amount
-end
-
-3.times do
-  puts "Multiply"
-  puts joshmoney.amount * dollar.amount
-end
-
-puts dollar.amount
-puts dollar.code
-3.times do
-  puts "I have #{joshmoney.amount} JoshMoneys!"
-end
+isolate_symbols
