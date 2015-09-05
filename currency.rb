@@ -9,7 +9,7 @@ class Currency
   def initialize(amount, code = "")
     codes_hash = {"$" => "USD",
                   "€" => "EUR",
-                  "¥" => "YEN"}
+                  "¥" => "JPY"}
     if code != ""
       @amount = amount
       @code = code
@@ -51,7 +51,7 @@ end
 
 
 dollar_check1 = Currency.new("¥12.22")
-puts "dollar check code is #{dollar_check1.code}"
+#puts "dollar check code is #{dollar_check1.code}"
 # dollar_check2 = Currency.new(100 USD)
 # dollar_check2 = (100 USD)
 # euro_check1   = "€7.00"
