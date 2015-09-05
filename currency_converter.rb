@@ -3,8 +3,8 @@ require './currency'
 class CurrencyConverter
 
   def initialize (currency_rates = {})
-    @currency_rates = {1.0   =>  "USD",
-                      0.74   =>  "EUR"}
+    @currency_rates = {"USD" => 1.0,
+                       "EUR" => 0.74}
   end
 
   def print_rates
@@ -16,11 +16,14 @@ class CurrencyConverter
     @amount = input.amount
     if input.code == @code
       Currency.new(@amount, @code)
+    else
+      @code = code
+      @amount = (input.amount*(1/@currency_rates[input.code]))
+      Currency.new(@amount, @code)
     end
   end
 end
 
-x = CurrencyConverter.new()
-dollar_to_convert = Currency.new("$3.00")
-puts x.convert(dollar_to_convert, "USD") == dollar_to_convert ? "yesss!" : "noooooo"
-puts x.print_rates
+new_converter = CurrencyConverter.new
+euros_to_convert = Currency.new("€3.00")
+puts "3 euros is #{new_converter.convert(euros_to_convert, "USD").amount} dollars"
