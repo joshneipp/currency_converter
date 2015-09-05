@@ -3,8 +3,7 @@ end
 
 class Currency
 
-  attr_reader :amount, :code_symbol
-  attr_reader :code
+  attr_reader :amount, :code_symbol, :code
   codes_hash = {}
 
   def initialize(amount, code = "")
@@ -23,7 +22,7 @@ class Currency
       # puts code_symbol
       @code = codes_hash[code_symbol].to_s
       @amount = amount.gsub(/[^\d\.]/, "").to_f
-      puts @amount
+      #puts @amount
     end
   end
 
@@ -50,9 +49,9 @@ class Currency
   end
 end
 
+
 dollar_check1 = Currency.new("¥12.22")
-puts dollar_check1.code
-puts dollar_check1.amount
+puts "dollar check code is #{dollar_check1.code}"
 # dollar_check2 = Currency.new(100 USD)
 # dollar_check2 = (100 USD)
 # euro_check1   = "€7.00"
@@ -62,12 +61,12 @@ joshmoney    =  Currency.new(100.00, "USD")
 damemoney    =  Currency.new(100.00, "DMZ")
 anthonymoney =  Currency.new(1000,   "USD")
 
-sum = dollar + joshmoney
-puts sum
-puts sum.amount
-puts sum.code
-
-product = joshmoney * dollar.amount
-puts product.amount
-puts product
-puts product.code
+# sum = dollar + joshmoney
+# puts sum
+# puts sum.amount
+# puts sum.code
+#
+# product = joshmoney * dollar.amount
+# puts product.amount
+# puts product
+# puts product.code
