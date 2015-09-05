@@ -1,5 +1,8 @@
 require './currency'
 
+class UnknownCurrencyCodeError < StandardError
+end
+
 class CurrencyConverter
 
   def initialize (currency_rates = {})
@@ -22,6 +25,9 @@ class CurrencyConverter
   def convert(input, code)
     # @code = code
     # @amount = input.amount
+    unless @currency_rates.has_key?(input.code) && @currency_rates.has_key?(code)
+      raise UnknownCurrencyCodeError
+    end
     if input.code == code
       @code = input.code
       @amount = input.amount
