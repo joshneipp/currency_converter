@@ -1,5 +1,5 @@
 require './currency'
-require './currency_converter.rb'
+require './currency_converter'
 
 new_converter = CurrencyConverter.new
 input = Currency.new(47, "NZD")
