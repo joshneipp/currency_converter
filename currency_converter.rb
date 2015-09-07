@@ -20,10 +20,6 @@ class CurrencyConverter
                        }
   end
 
-  def print_rates
-    puts @currency_rates.to_s
-  end
-
   def convert(input, code)
     unless @currency_rates.has_key?(input.code) && @currency_rates.has_key?(code)
       raise UnknownCurrencyCodeError
