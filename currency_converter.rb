@@ -5,8 +5,6 @@ end
 
 class CurrencyConverter
 
-  attr_reader :currency_rates, :amount, :code, :desired_code
-
   def initialize(currency_rates = {})
     @currency_rates =  {"AUD" => 1.44686,
                         "CAD" => 1.32795,

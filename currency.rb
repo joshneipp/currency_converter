@@ -18,7 +18,6 @@ class Currency
       code_symbol = code_symbol.gsub(/\./, "")
       @code = codes_hash[code_symbol].to_s
       @amount = amount.gsub(/[^\d\.]/, "").to_f
-
     end
   end
 
@@ -45,10 +44,11 @@ class Currency
   end
 end
 
+#The following variable can be used to test functionality of initialize.
+currency_check = Currency.new("¥12.22")
 
-dollar_check1 = Currency.new("¥12.22")
-
+#The following variables can be used to test functionality of the
+#mathematical operator methods defined above
 dollar       =  Currency.new(1000.00, "USD")
-joshmoney    =  Currency.new(100.00, "USD")
+joshmoney    =  Currency.new(1000.00, "USD")
 damemoney    =  Currency.new(100.00, "DMZ")
-anthonymoney =  Currency.new(1000,   "USD")
